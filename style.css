@@ -20,7 +20,7 @@ h1{
     width: max-content;
     padding: 0px 0px 0px 0px;
 }
-#container{
+#grid-container{
     margin: auto;
     width: max-content;
     display: grid;
