@@ -11,6 +11,7 @@ function setupGrid(size) {
             newDiv.addEventListener("mouseover", function (){
                 this.style.cssText = "background-color: " + getColor();
             });
+            gridDiv.style.cssText = "grid-template-columns: repeat("+ size +", 31px);"
             gridDiv.append(newDiv);
     }
 }
@@ -21,7 +22,7 @@ function getColor(){
 }
 
 function removeGrid(){
-    for (var i=0;i<(currentSize*currentSize);i++)
+    for (var i=-1;i<(currentSize*currentSize);i++)
     {
         gridDiv.removeChild(gridDiv.firstChild);
     }
