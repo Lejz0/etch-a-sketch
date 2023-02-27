@@ -24,5 +24,4 @@ h1{
     margin: auto;
     width: max-content;
     display: grid;
-    grid-template-columns: repeat(16, 31px);
 }
