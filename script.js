@@ -1,9 +1,9 @@
 var gridDiv = document.getElementById("grid-container");
-console.log(gridDiv)
+var initialSize = 16;
+var currentSize = 16;
 
 function setupGrid(size) {
     var fullsize = size * size;
-    console.log(fullsize);
     for (var i=0;i<fullsize;i++)
     {
             var newDiv = document.createElement('div');
@@ -20,13 +20,21 @@ function getColor(){
     return color;
 }
 
-function changeGrid(){
-    var golemina = prompt("Enter the new grid size:");
-    console.log(golemina)
-    setupGrid(golemina);
+function removeGrid(){
+    for (var i=0;i<(currentSize*currentSize);i++)
+    {
+        gridDiv.removeChild(gridDiv.firstChild);
+    }
 }
 
-window.onload = setupGrid(16);
+function changeGrid(){
+    nextSize = prompt("Enter the new grid size:");
+    removeGrid();
+    setupGrid(nextSize);
+    currentSize = nextSize;
+}
+
+window.onload = setupGrid(initialSize);
 
 
 
