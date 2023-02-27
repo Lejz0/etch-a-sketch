@@ -7,11 +7,11 @@ function setupGrid(size) {
     for (var i=0;i<fullsize;i++)
     {
             var newDiv = document.createElement('div');
-            newDiv.style.cssText = "border : 1px solid black; height: 30px; width: 30px"
+            newDiv.style.cssText = "border : none; height: 30px; width: 30px"
             newDiv.addEventListener("mouseover", function (){
-                this.style.cssText = "background-color: " + getColor();
+                this.style.cssText = "background-color: " + getColor() + "; height: 30px;  width: 30px";
             });
-            gridDiv.style.cssText = "grid-template-columns: repeat("+ size +", 31px);"
+            gridDiv.style.cssText = "grid-template-columns: repeat("+ size +", 30px);"
             gridDiv.append(newDiv);
     }
 }
