@@ -7,18 +7,19 @@
     <title>Etch-a-sketch</title>
 
     <link href="style.css" rel="stylesheet" type="text/css">
-    <script src="script.js"></script>
 
 </head>     
 <body>
     <div id="wrapper">
         <h1>Etch-a-sketch</h1>
-        <div id="container">
+        <button onclick="changeGrid()">Change grid size</button>
+        <div id="grid-container">
         </div>
         <div id="color_picker">
             <span>Choose color:</span>
             <input type="color" id="color" value="#FFFFFF">
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
