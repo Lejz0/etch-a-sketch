@@ -35,6 +35,22 @@ function changeGrid(){
     currentSize = nextSize;
 }
 
+var Canvascolor = document.getElementById("background-color");
+Canvascolor.addEventListener("change", function () {
+    gridDiv.style.backgroundColor = Canvascolor.value;
+})
+
+function eraser(){
+    for (var j=0;j<gridDiv.childElementCount;j++)
+    {
+    gridDiv.children[j].removeEventListener("mouseover", function(){
+        this.style.cssText = "background-color: " + getColor() + "; height: 30px;  width: 30px";
+    })
+    gridDiv.children[j].addEventListener("mouseover", function (){
+        this.style.backgroundColor = Canvascolor.value; 
+    })
+    }
+}
 window.onload = setupGrid(initialSize);
 
 
