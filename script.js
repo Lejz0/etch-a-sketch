@@ -38,7 +38,10 @@ function changeGrid(){
 
 var Canvascolor = document.getElementById("background-color");
 Canvascolor.addEventListener("change", function () {
-    gridDiv.style.backgroundColor = Canvascolor.value;
+    for (var j=0;j<gridDiv.childElementCount;j++)
+    {
+    gridDiv.children[j].style.backgroundColor = Canvascolor.value;
+    }
 })
 
 function eraser(){
@@ -52,6 +55,13 @@ function eraser(){
     })
     }
     ActiveEraser = true;
+}
+
+function clearCanvas(){
+    for (var j=0;j<gridDiv.childElementCount;j++)
+    {
+    gridDiv.children[j].style.backgroundColor = Canvascolor.value;
+    }
 }
 
 var colorPicker = document.getElementById("color");
