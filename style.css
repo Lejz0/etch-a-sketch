@@ -1,11 +1,9 @@
 body{
     margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
-    width: 100%;
-    height: 100%;
+    background-color:rgb(100, 148, 112);
 }
 #wrapper{
-    background-color:rgb(185, 190, 233);
     height: 100%;
     width: 100%;
 }
@@ -15,7 +13,7 @@ h1{
     margin: auto;
     width: max-content;
 }
-#color_picker{
+#options{
     margin: auto;
     width: max-content;
     padding: 0px 0px 0px 0px;
@@ -25,4 +23,5 @@ h1{
     width: max-content;
     display: grid;
     border: 1px solid black;
+    background-color: white;
 }
