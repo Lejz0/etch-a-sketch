@@ -17,7 +17,9 @@
         <div id="options">
             <input type="color" id="color" value="#000000">
             <input type="color" id="background-color" value="#ffffff">
-            <button onclick="changeGrid()">Change grid size</button>
+            <div id="slider-container">
+                <input type="range" min="1" max="64" value="16" id="myRange" class="slider">
+              </div>
             <button onclick="eraser()">Eraser</button>
         </div>
     </div>
