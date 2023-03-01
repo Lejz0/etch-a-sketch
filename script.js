@@ -38,10 +38,7 @@ function changeGrid(){
 
 var Canvascolor = document.getElementById("background-color");
 Canvascolor.addEventListener("change", function () {
-    for (var j=0;j<gridDiv.childElementCount;j++)
-    {
-    gridDiv.children[j].style.backgroundColor = Canvascolor.value;
-    }
+    gridDiv.style.backgroundColor = Canvascolor.value;
 })
 
 function eraser(){
