@@ -15,12 +15,13 @@
         <div id="grid-container">
         </div>
         <div id="options">
-            <input type="color" id="color" value="#000000">
-            <input type="color" id="background-color" value="#ffffff">
+            <input class = "color-buttons" type="color" id="color" value="#000000">
+            <input class = "color-buttons" type="color" id="background-color" value="#ffffff">
+            <button class="button" onclick="eraser()">Eraser</button>
+            <button class="button" onclick="clearCanvas()">Clear</button>
             <div id="slider-container">
                 <input type="range" min="1" max="64" value="16" id="myRange" class="slider">
               </div>
-            <button onclick="eraser()">Eraser</button>
         </div>
     </div>
     <script src="script.js"></script>
