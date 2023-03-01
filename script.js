@@ -1,6 +1,7 @@
 var gridDiv = document.getElementById("grid-container");
 var initialSize = 16;
 var currentSize = 16;
+var ActiveEraser = false;
 
 function setupGrid(size) {
     var fullsize = size * size;
@@ -50,7 +51,26 @@ function eraser(){
         this.style.backgroundColor = Canvascolor.value; 
     })
     }
+    ActiveEraser = true;
 }
+
+var colorPicker = document.getElementById("color");
+colorPicker.addEventListener("change", function () {
+    if (ActiveEraser)
+    {
+    for (var j=0;j<gridDiv.childElementCount;j++)
+    {
+    gridDiv.children[j].removeEventListener("mouseover", function(){
+        this.style.backgroundColor = Canvascolor.value; 
+    })
+    gridDiv.children[j].addEventListener("mouseover", function (){
+        this.style.cssText = "background-color: " + getColor() + "; height: 30px;  width: 30px";
+    })
+    } 
+    }
+})
+
+
 window.onload = setupGrid(initialSize);
 
 
