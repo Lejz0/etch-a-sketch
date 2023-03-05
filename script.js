@@ -2,17 +2,21 @@ var gridDiv = document.getElementById("grid-container");
 var initialSize = 16;
 var currentSize = 16;
 var ActiveEraser = false;
+var singlesize;
 
 function setupGrid(size) {
     var fullsize = size * size;
+    singlesize = parseFloat(500/size)
     for (var i=0;i<fullsize;i++)
     {
             var newDiv = document.createElement('div');
-            newDiv.style.cssText = "border : none; height: 30px; width: 30px"
+            newDiv.style.border = "none";
+            newDiv.style.height = singlesize + "px";
+            newDiv.style.width= singlesize+ "px";
             newDiv.addEventListener("mouseover", function (){
-                this.style.cssText = "background-color: " + getColor() + "; height: 30px;  width: 30px";
+                this.style.cssText = "background-color: " + getColor() + "; height: "+ singlesize + "px;  width: + " + singlesize + "px";
             });
-            gridDiv.style.cssText = "grid-template-columns: repeat("+ size +", 30px);"
+            gridDiv.style.cssText = "grid-template-columns: repeat("+ size +", "+ singlesize +"px);"
             gridDiv.append(newDiv);
     }
 }
@@ -38,14 +42,17 @@ function changeGrid(){
 
 var Canvascolor = document.getElementById("background-color");
 Canvascolor.addEventListener("change", function () {
-    gridDiv.style.backgroundColor = Canvascolor.value;
+    for (var i=0;i<gridDiv.childElementCount;i++)
+    {
+        gridDiv.children[i].style.backgroundColor = Canvascolor.value;
+    }
 })
 
 function eraser(){
     for (var j=0;j<gridDiv.childElementCount;j++)
     {
     gridDiv.children[j].removeEventListener("mouseover", function(){
-        this.style.cssText = "background-color: " + getColor() + "; height: 30px;  width: 30px";
+        this.style.cssText = "background-color: " + getColor() + "; height: "+ singlesize + "px;  width: + " + singlesize + "px";
     })
     gridDiv.children[j].addEventListener("mouseover", function (){
         this.style.backgroundColor = Canvascolor.value; 
@@ -55,9 +62,9 @@ function eraser(){
 }
 
 function clearCanvas(){
-    for (var j=0;j<gridDiv.childElementCount;j++)
+    for (var i=0;i<gridDiv.childElementCount;i++)
     {
-    gridDiv.children[j].style.backgroundColor = Canvascolor.value;
+        gridDiv.children[i].style.backgroundColor = Canvascolor.value;
     }
 }
 
@@ -71,13 +78,16 @@ colorPicker.addEventListener("change", function () {
         this.style.backgroundColor = Canvascolor.value; 
     })
     gridDiv.children[j].addEventListener("mouseover", function (){
-        this.style.cssText = "background-color: " + getColor() + "; height: 30px;  width: 30px";
+        this.style.cssText = "background-color: " + getColor() + "; height: "+ singlesize + "px;  width: + " + singlesize + "px";
     })
     } 
     }
 })
 
-
+var slider = document.getElementById("rangeInput");
+slider.addEventListener("change", function (){
+    console.log("1")
+})
 window.onload = setupGrid(initialSize);
 
 
