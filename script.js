@@ -4,6 +4,7 @@ var currentSize = 16;
 var ActiveEraser = false;
 var singlesize;
 
+
 function setupGrid(size) {
     var fullsize = size * size;
     singlesize = parseFloat(500/size)
@@ -27,14 +28,15 @@ function getColor(){
 }
 
 function removeGrid(){
-    for (var i=-1;i<(currentSize*currentSize);i++)
+    for (var i=0;i<((currentSize*currentSize));i++)
     {
-        gridDiv.removeChild(gridDiv.firstChild);
+        gridDiv.removeChild(gridDiv.lastChild);
     }
 }
 
 function changeGrid(){
-    nextSize = prompt("Enter the new grid size:");
+    nextSize = slider.value;
+    console.log(slider.value)
     removeGrid();
     setupGrid(nextSize);
     currentSize = nextSize;
@@ -52,7 +54,7 @@ function eraser(){
     for (var j=0;j<gridDiv.childElementCount;j++)
     {
     gridDiv.children[j].removeEventListener("mouseover", function(){
-        this.style.cssText = "background-color: " + getColor() + "; height: "+ singlesize + "px;  width: + " + singlesize + "px";
+        this.style.cssText = "background-color: " + getColor() + "; height: "+ singlesize + "px;  width: " + singlesize + "px";
     })
     gridDiv.children[j].addEventListener("mouseover", function (){
         this.style.backgroundColor = Canvascolor.value; 
@@ -85,9 +87,7 @@ colorPicker.addEventListener("change", function () {
 })
 
 var slider = document.getElementById("rangeInput");
-slider.addEventListener("change", function (){
-    console.log("1")
-})
+slider.addEventListener("change", changeGrid)
 window.onload = setupGrid(initialSize);
 
 
